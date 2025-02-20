@@ -3,12 +3,18 @@ project(PUBGClone)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Find SDL2 package
+# Find SDL2 packages
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
 
 # Include directories
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} include)
+include_directories(
+    ${SDL2_INCLUDE_DIRS}
+    ${SDL2_IMAGE_INCLUDE_DIRS}
+    ${SDL2_TTF_INCLUDE_DIRS}
+    include
+)
 
 # Add source files
 set(SOURCES
@@ -23,7 +29,8 @@ set(SOURCES
 add_executable(game ${SOURCES})
 
 # Link libraries
-target_link_libraries(game 
-    ${SDL2_LIBRARIES}
-    ${SDL2_IMAGE_LIBRARIES}
+target_link_libraries(game
+    SDL2
+    SDL2_image
+    SDL2_ttf
 )

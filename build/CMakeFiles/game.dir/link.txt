@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/game.dir/src/main.cpp.o CMakeFiles/game.dir/src/Game.cpp.o CMakeFiles/game.dir/src/Player.cpp.o CMakeFiles/game.dir/src/Vector2D.cpp.o CMakeFiles/game.dir/src/Bullet.cpp.o -o game  /usr/lib/x86_64-linux-gnu/libSDL2.so 
+/usr/bin/g++ CMakeFiles/game.dir/src/main.cpp.o CMakeFiles/game.dir/src/Game.cpp.o CMakeFiles/game.dir/src/Player.cpp.o CMakeFiles/game.dir/src/Vector2D.cpp.o CMakeFiles/game.dir/src/Bullet.cpp.o -o game  -lSDL2 -lSDL2_image -lSDL2_ttf 

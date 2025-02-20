@@ -73,71 +73,71 @@ CMakeFiles/game.dir/src/main.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/main.cpp.o: /home/aditya/my-work/clishootinggame/src/main.cpp
 CMakeFiles/game.dir/src/main.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/game.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/main.cpp.o -MF CMakeFiles/game.dir/src/main.cpp.o.d -o CMakeFiles/game.dir/src/main.cpp.o -c /home/aditya/my-work/clishootinggame/src/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/main.cpp.o -MF CMakeFiles/game.dir/src/main.cpp.o.d -o CMakeFiles/game.dir/src/main.cpp.o -c /home/aditya/my-work/clishootinggame/src/main.cpp
 
 CMakeFiles/game.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/main.cpp > CMakeFiles/game.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/main.cpp > CMakeFiles/game.dir/src/main.cpp.i
 
 CMakeFiles/game.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/main.cpp -o CMakeFiles/game.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/main.cpp -o CMakeFiles/game.dir/src/main.cpp.s
 
 CMakeFiles/game.dir/src/Game.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/Game.cpp.o: /home/aditya/my-work/clishootinggame/src/Game.cpp
 CMakeFiles/game.dir/src/Game.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/game.dir/src/Game.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Game.cpp.o -MF CMakeFiles/game.dir/src/Game.cpp.o.d -o CMakeFiles/game.dir/src/Game.cpp.o -c /home/aditya/my-work/clishootinggame/src/Game.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Game.cpp.o -MF CMakeFiles/game.dir/src/Game.cpp.o.d -o CMakeFiles/game.dir/src/Game.cpp.o -c /home/aditya/my-work/clishootinggame/src/Game.cpp
 
 CMakeFiles/game.dir/src/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/Game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Game.cpp > CMakeFiles/game.dir/src/Game.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Game.cpp > CMakeFiles/game.dir/src/Game.cpp.i
 
 CMakeFiles/game.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/Game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Game.cpp -o CMakeFiles/game.dir/src/Game.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Game.cpp -o CMakeFiles/game.dir/src/Game.cpp.s
 
 CMakeFiles/game.dir/src/Player.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/Player.cpp.o: /home/aditya/my-work/clishootinggame/src/Player.cpp
 CMakeFiles/game.dir/src/Player.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/game.dir/src/Player.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Player.cpp.o -MF CMakeFiles/game.dir/src/Player.cpp.o.d -o CMakeFiles/game.dir/src/Player.cpp.o -c /home/aditya/my-work/clishootinggame/src/Player.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Player.cpp.o -MF CMakeFiles/game.dir/src/Player.cpp.o.d -o CMakeFiles/game.dir/src/Player.cpp.o -c /home/aditya/my-work/clishootinggame/src/Player.cpp
 
 CMakeFiles/game.dir/src/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/Player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Player.cpp > CMakeFiles/game.dir/src/Player.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Player.cpp > CMakeFiles/game.dir/src/Player.cpp.i
 
 CMakeFiles/game.dir/src/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/Player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Player.cpp -o CMakeFiles/game.dir/src/Player.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Player.cpp -o CMakeFiles/game.dir/src/Player.cpp.s
 
 CMakeFiles/game.dir/src/Vector2D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/Vector2D.cpp.o: /home/aditya/my-work/clishootinggame/src/Vector2D.cpp
 CMakeFiles/game.dir/src/Vector2D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/game.dir/src/Vector2D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Vector2D.cpp.o -MF CMakeFiles/game.dir/src/Vector2D.cpp.o.d -o CMakeFiles/game.dir/src/Vector2D.cpp.o -c /home/aditya/my-work/clishootinggame/src/Vector2D.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Vector2D.cpp.o -MF CMakeFiles/game.dir/src/Vector2D.cpp.o.d -o CMakeFiles/game.dir/src/Vector2D.cpp.o -c /home/aditya/my-work/clishootinggame/src/Vector2D.cpp
 
 CMakeFiles/game.dir/src/Vector2D.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/Vector2D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Vector2D.cpp > CMakeFiles/game.dir/src/Vector2D.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Vector2D.cpp > CMakeFiles/game.dir/src/Vector2D.cpp.i
 
 CMakeFiles/game.dir/src/Vector2D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/Vector2D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Vector2D.cpp -o CMakeFiles/game.dir/src/Vector2D.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Vector2D.cpp -o CMakeFiles/game.dir/src/Vector2D.cpp.s
 
 CMakeFiles/game.dir/src/Bullet.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/Bullet.cpp.o: /home/aditya/my-work/clishootinggame/src/Bullet.cpp
 CMakeFiles/game.dir/src/Bullet.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/game.dir/src/Bullet.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Bullet.cpp.o -MF CMakeFiles/game.dir/src/Bullet.cpp.o.d -o CMakeFiles/game.dir/src/Bullet.cpp.o -c /home/aditya/my-work/clishootinggame/src/Bullet.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/Bullet.cpp.o -MF CMakeFiles/game.dir/src/Bullet.cpp.o.d -o CMakeFiles/game.dir/src/Bullet.cpp.o -c /home/aditya/my-work/clishootinggame/src/Bullet.cpp
 
 CMakeFiles/game.dir/src/Bullet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/Bullet.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Bullet.cpp > CMakeFiles/game.dir/src/Bullet.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aditya/my-work/clishootinggame/src/Bullet.cpp > CMakeFiles/game.dir/src/Bullet.cpp.i
 
 CMakeFiles/game.dir/src/Bullet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/Bullet.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Bullet.cpp -o CMakeFiles/game.dir/src/Bullet.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aditya/my-work/clishootinggame/src/Bullet.cpp -o CMakeFiles/game.dir/src/Bullet.cpp.s
 
 # Object files for target game
 game_OBJECTS = \
@@ -156,7 +156,6 @@ game: CMakeFiles/game.dir/src/Player.cpp.o
 game: CMakeFiles/game.dir/src/Vector2D.cpp.o
 game: CMakeFiles/game.dir/src/Bullet.cpp.o
 game: CMakeFiles/game.dir/build.make
-game: /usr/lib/x86_64-linux-gnu/libSDL2.so
 game: CMakeFiles/game.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/aditya/my-work/clishootinggame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game.dir/link.txt --verbose=$(VERBOSE)

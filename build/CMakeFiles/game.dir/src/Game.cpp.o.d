@@ -298,7 +298,8 @@ CMakeFiles/game.dir/src/Game.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h \
+ /usr/include/SDL2/SDL_misc.h /usr/include/SDL2/SDL_ttf.h \
+ /usr/include/SDL2/SDL.h \
  /home/aditya/my-work/clishootinggame/include/Player.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
@@ -325,4 +326,5 @@ CMakeFiles/game.dir/src/Game.cpp.o: \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/chrono \
  /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
  /usr/include/c++/13/cstdint /usr/include/c++/13/ctime \
- /usr/include/c++/13/bits/parse_numbers.h
+ /usr/include/c++/13/bits/parse_numbers.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/bits/sstream.tcc

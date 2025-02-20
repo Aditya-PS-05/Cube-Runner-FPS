@@ -3,8 +3,9 @@
 #include <cmath>
 #include <algorithm>
 
-Player::Player(SDL_Renderer* renderer, float x, float y, bool local) 
-    : position(x, y), angle(0.0f), health(100.0f), isLocal(local), playerModel(nullptr) {
+Player::Player(SDL_Renderer* renderer, float x, float y, bool local, bool bot) 
+    : position(x, y), angle(0.0f), health(100.0f), isLocal(local), 
+      playerModel(nullptr), isBot(bot), moveSpeed(3.0f), score(0), isAlive(true) {
     if (renderer) {
         loadPlayerModel(renderer);
     }
@@ -44,28 +45,84 @@ void Player::update(float deltaTime, const std::string& map, int mapWidth) {
     );
 }
 
+void Player::updateBot(float deltaTime, const Player& target, const std::string& map, int mapWidth) {
+    if (isDead()) return;
+
+    // Move towards player more aggressively
+    moveTowardsPlayer(target, deltaTime, map, mapWidth);
+
+    // Shoot more frequently when closer to the player
+    float distance = getDistanceToTarget(target.position);
+    float shootChance = 5.0f * (1.0f - (distance / 10.0f));  // More likely to shoot when closer
+    
+    if (distance < 8.0f && (rand() % 100) < shootChance) {
+        shoot();
+    }
+
+    update(deltaTime, map, mapWidth);
+}
+
+void Player::moveTowardsPlayer(const Player& target, float deltaTime, const std::string& map, int mapWidth) {
+    // Calculate angle to target
+    angle = getAngleToTarget(target.position);
+
+    // Move towards target with slight randomization for more natural movement
+    float randomOffset = (rand() % 100 - 50) / 500.0f;  // Small random angle adjustment
+    Vector2D newPos = position + Vector2D(
+        sinf(angle + randomOffset) * moveSpeed * deltaTime,
+        cosf(angle + randomOffset) * moveSpeed * deltaTime
+    );
+
+    // Try to find alternative path if blocked by wall
+    if (map[static_cast<int>(newPos.x) * mapWidth + static_cast<int>(newPos.y)] != '#') {
+        position = newPos;
+    } else {
+        // Try moving sideways if blocked
+        Vector2D sideStep = Vector2D(
+            sinf(angle + 3.14159f/2) * moveSpeed * deltaTime,
+            cosf(angle + 3.14159f/2) * moveSpeed * deltaTime
+        );
+        
+        if (map[static_cast<int>(position.x + sideStep.x) * mapWidth + 
+               static_cast<int>(position.y + sideStep.y)] != '#') {
+            position = position + sideStep;
+        }
+    }
+}
+
+float Player::getAngleToTarget(const Vector2D& targetPos) const {
+    return atan2(targetPos.x - position.x, targetPos.y - position.y);
+}
+
+float Player::getDistanceToTarget(const Vector2D& targetPos) const {
+    float dx = position.x - targetPos.x;
+    float dy = position.y - targetPos.y;
+    return sqrt(dx*dx + dy*dy);
+}
+
 void Player::loadPlayerModel(SDL_Renderer* renderer) {
-    // Create a simple human-shaped texture
-    SDL_Surface* surface = SDL_CreateRGBSurface(0, 32, 64, 32, 0, 0, 0, 0);
-    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));  // Black silhouette
+    // Create a larger human-shaped texture
+    SDL_Surface* surface = SDL_CreateRGBSurface(0, 64, 128, 32, 0, 0, 0, 0);
+    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0, 0, 0));  // Black background
     
-    // Create basic human shape
-    SDL_Rect head = {12, 0, 8, 8};    // Head
-    SDL_Rect body = {8, 8, 16, 32};   // Body
-    SDL_Rect arms = {0, 8, 32, 8};    // Arms
-    SDL_Rect legs = {8, 40, 16, 24};  // Legs
+    // Create more visible human shape
+    SDL_Rect head = {24, 0, 16, 16};     // Larger head
+    SDL_Rect body = {16, 16, 32, 64};    // Larger body
+    SDL_Rect arms = {0, 32, 64, 16};     // Larger arms
+    SDL_Rect legs = {16, 80, 32, 48};    // Larger legs
     
-    SDL_FillRect(surface, &head, SDL_MapRGB(surface->format, 50, 50, 50));
-    SDL_FillRect(surface, &body, SDL_MapRGB(surface->format, 50, 50, 50));
-    SDL_FillRect(surface, &arms, SDL_MapRGB(surface->format, 50, 50, 50));
-    SDL_FillRect(surface, &legs, SDL_MapRGB(surface->format, 50, 50, 50));
+    // Fill with darker color for better visibility
+    SDL_FillRect(surface, &head, SDL_MapRGB(surface->format, 30, 30, 30));
+    SDL_FillRect(surface, &body, SDL_MapRGB(surface->format, 40, 40, 40));
+    SDL_FillRect(surface, &arms, SDL_MapRGB(surface->format, 35, 35, 35));
+    SDL_FillRect(surface, &legs, SDL_MapRGB(surface->format, 45, 45, 45));
     
     playerModel = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 }
 
 void Player::render(SDL_Renderer* renderer, const Player& viewingPlayer, float FOV) {
-    if (this == &viewingPlayer) return;  // Don't render viewing player
+    if (this == &viewingPlayer || isDead()) return;
 
     // Calculate relative position to viewing player
     Vector2D relativePos = position + Vector2D(-viewingPlayer.position.x, -viewingPlayer.position.y);
@@ -74,14 +131,25 @@ void Player::render(SDL_Renderer* renderer, const Player& viewingPlayer, float F
     float relativeAngle = atan2(relativePos.y, relativePos.x) - viewingPlayer.angle;
     float distance = sqrt(relativePos.x * relativePos.x + relativePos.y * relativePos.y);
     
-    // Check if player is in view
+    // Make bots more visible by adjusting rendering
     if (abs(relativeAngle) < FOV/2) {
-        // Calculate screen position
+        // Calculate screen position with adjusted size
         int screenX = (relativeAngle + FOV/2) * 800 / FOV;
-        int screenY = 300 - (600 / distance);
-        int height = 1200 / distance;
+        int screenY = 300 - (800 / distance);  // Increased vertical offset
+        int height = 1600 / distance;          // Increased size
         
-        SDL_Rect destRect = {screenX - height/4, screenY, height/2, height};
+        SDL_Rect destRect = {
+            screenX - height/3,     // Wider sprite
+            screenY, 
+            static_cast<int>(height/1.5),  // Fix narrowing conversion
+            height
+        };
+        
+        // Add outline for better visibility
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_RenderDrawRect(renderer, &destRect);
+        
+        // Render the bot
         SDL_RenderCopy(renderer, playerModel, NULL, &destRect);
     }
 }
