@@ -1,3 +1,0 @@
-/home/aditya/my-work/clishootinggame/build/CMakeFiles/game.dir
-/home/aditya/my-work/clishootinggame/build/CMakeFiles/edit_cache.dir
-/home/aditya/my-work/clishootinggame/build/CMakeFiles/rebuild_cache.dir
