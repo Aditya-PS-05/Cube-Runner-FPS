@@ -1,1 +1,16 @@
+# Build directories
 build/
+/build
+**/build/
+
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+
+# IDE specific files
+.idea/
+*.swp
