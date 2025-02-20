@@ -8,7 +8,8 @@ public:
     Vector2D direction;
     float speed;
     bool active;
+    bool isBot;
     
-    Bullet(Vector2D pos, Vector2D dir, float spd = 10.0f);
+    Bullet(const Vector2D& pos, const Vector2D& dir, float spd = 10.0f, bool bot = false);
     void update(float deltaTime);
 };

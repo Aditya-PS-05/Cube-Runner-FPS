@@ -22,7 +22,23 @@ private:
     const int mapHeight;
     const float FOV;
     const float depth;
+    float gameTimer;         // Track game time
+    const float GAME_DURATION = 120.0f;  // 2 minutes in seconds
+    int botsKilled;          // Track number of bots killed
+    const int BOTS_TO_WIN = 10;  // Number of bots needed to kill to win
+    float botSpawnTimer;     // Timer for spawning new bots
+    const float BOT_SPAWN_INTERVAL = 15.0f;  // Spawn new bot every 15 seconds
 
+    enum class GameState {
+        MENU,
+        RULES,
+        PLAYING,
+        PAUSED,
+        QUIT_CONFIRM,
+        GAME_OVER
+    };
+    
+    GameState gameState;
     void initializeMap();
     void renderView();
     float castRay(float angle, const Vector2D& start);
@@ -35,6 +51,11 @@ private:
     void updateBots(float deltaTime);
     void checkBulletCollisions();
     void restart();
+    void renderMenu();
+    void renderRules();
+    void renderPauseScreen();
+    void renderTimer();
+    void renderQuitConfirm();
 
 public:
     Game();
