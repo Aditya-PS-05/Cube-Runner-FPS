@@ -2,6 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <cmath>
 #include <algorithm>
+#include <SDL2/SDL_mixer.h>
 
 Player::Player(SDL_Renderer* renderer, float x, float y, bool local, bool bot) 
     : position(x, y), angle(0.0f), health(100.0f), isLocal(local), 
@@ -21,6 +22,15 @@ Player::~Player() {
 void Player::shoot() {
     Vector2D bulletDir(sinf(angle), cosf(angle));
     bullets.emplace_back(position, bulletDir, 10.0f, isBot);
+    
+    // Play shoot sound for bots
+    if (isBot) {
+        Mix_Chunk* shootSound = Mix_LoadWAV("../assets/audio/gunghot.wav");
+        if (shootSound) {
+            Mix_PlayChannel(-1, shootSound, 0);
+            Mix_FreeChunk(shootSound);
+        }
+    }
 }
 
 void Player::update(float deltaTime, const std::string& map, int mapWidth) {

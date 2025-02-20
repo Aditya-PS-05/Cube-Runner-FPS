@@ -13,11 +13,13 @@ Game::Game() : screenWidth(1920), screenHeight(1080),
              botRespawnTime(3.0f), gameOver(false),
              window(nullptr), renderer(nullptr), font(nullptr),
              gameState(GameState::MENU), gameTimer(GAME_DURATION),
-             botsKilled(0), botSpawnTimer(BOT_SPAWN_INTERVAL) {
+             botsKilled(0), botSpawnTimer(BOT_SPAWN_INTERVAL),
+             backgroundMusic(nullptr), shootSound(nullptr) {
     initializeMap();
 }
 
 Game::~Game() {
+    cleanupAudio();
     if (font) {
         TTF_CloseFont(font);
     }
@@ -27,8 +29,42 @@ Game::~Game() {
     SDL_Quit();
 }
 
+void Game::initializeAudio() {
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        std::cout << "SDL_mixer initialization failed: " << Mix_GetError() << std::endl;
+        return;
+    }
+
+    // Load background music
+    backgroundMusic = Mix_LoadMUS("../assets/audio/tactical_warfare.wav");
+    if (!backgroundMusic) {
+        std::cout << "Failed to load background music: " << Mix_GetError() << std::endl;
+    }
+
+    // Load shoot sound effect
+    shootSound = Mix_LoadWAV("../assets/audio/gunshot.wav");
+    if (!shootSound) {
+        std::cout << "Failed to load shoot sound: " << Mix_GetError() << std::endl;
+    }
+
+    // Start playing background music on loop
+    if (backgroundMusic) {
+        Mix_PlayMusic(backgroundMusic, -1);  // -1 means loop indefinitely
+    }
+}
+
+void Game::cleanupAudio() {
+    if (shootSound) {
+        Mix_FreeChunk(shootSound);
+    }
+    if (backgroundMusic) {
+        Mix_FreeMusic(backgroundMusic);
+    }
+    Mix_CloseAudio();
+}
+
 bool Game::initialize() {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         std::cout << "SDL initialization failed: " << SDL_GetError() << std::endl;
         return false;
     }
@@ -67,6 +103,9 @@ bool Game::initialize() {
     // Initialize player and bots
     players.push_back(std::make_unique<Player>(renderer));
     spawnBots(botCount);
+    
+    // Initialize audio after SDL initialization
+    initializeAudio();
     
     running = true;
     return true;
@@ -122,6 +161,10 @@ void Game::handleInput(float deltaTime) {
                     }
                     else if (event.key.keysym.sym == SDLK_k) {
                         players[0]->shoot();
+                        // Play shoot sound
+                        if (shootSound) {
+                            Mix_PlayChannel(-1, shootSound, 0);
+                        }
                     }
                     else if (event.key.keysym.sym == SDLK_q) {
                         gameState = GameState::PAUSED;

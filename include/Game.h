@@ -3,6 +3,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include "Player.h"
 
 class Game {
@@ -28,6 +29,8 @@ private:
     const int BOTS_TO_WIN = 10;  // Number of bots needed to kill to win
     float botSpawnTimer;     // Timer for spawning new bots
     const float BOT_SPAWN_INTERVAL = 15.0f;  // Spawn new bot every 15 seconds
+    Mix_Music* backgroundMusic;
+    Mix_Chunk* shootSound;
 
     enum class GameState {
         MENU,
@@ -56,6 +59,8 @@ private:
     void renderPauseScreen();
     void renderTimer();
     void renderQuitConfirm();
+    void initializeAudio();
+    void cleanupAudio();
 
 public:
     Game();
